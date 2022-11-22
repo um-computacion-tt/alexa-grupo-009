@@ -45,20 +45,15 @@ def run_alexa():
             #time = datetime.datetime.now().strftime('%I:%M %p') 
             #print(time)
             #talk('Current time is ' + time)
-    elif 'who is' in command: 
-            person = command.replace('who is ', '')
-            info = wikipedia.summary(person, 1)
+    elif 'tell me about' in command: 
+            look = command.replace('tell me about', '')
+            info = wikipedia.summary(look, 1)
             print(info)
             talk(info)
     elif 'joke' in command:
         talk(pyjokes.get_joke())
     elif 'who are you' in command:
         talk('i am your personal virtual assistand')
-    elif 'where is' in command:
-            place = command.replace ('where is', '')
-            info = wikipedia.summary(place,1)
-            print(info)
-            talk(info)
     elif 'goodbye' in command:
         pass
     elif 'function' in command:
@@ -81,7 +76,8 @@ def run_alexa():
         print('if you do not want to continue talking to me you say the command "goodbye" ')
         talk('if you do not want to continue talking to me you say the command "goodbye" ')        
     else: 
-        talk('Please say the command again') 
+        talk('I did not get it but I am going to search it for you')
+        pywhatkit.search(command)
 
 while True:
     run_alexa()
