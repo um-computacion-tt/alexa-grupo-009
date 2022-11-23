@@ -26,14 +26,13 @@ def take_command():
             if "alexa" in command:    
                 command = command.replace('alexa', '') 
     except:   
-        pass 
+        command = 'understand'
     return command
 
 def run_alexa(): 
     command = take_command()
     print(command)
     recalling.append(command)
-
     if 'play' in command:                                           
         song = command.replace('play', '')
         talk('playing ' + song)
@@ -42,20 +41,28 @@ def run_alexa():
             time = datetime.datetime.now().strftime('%H:%M') 
             print(time)
             talk('Current time is ' + time)
-            #time = datetime.datetime.now().strftime('%I:%M %p') 
-            #print(time)
-            #talk('Current time is ' + time)
+            '''time = datetime.datetime.now().strftime('%I:%M %p') 
+            print(time)
+            talk('Current time is ' + time) '''
     elif 'tell me about' in command: 
             look = command.replace('tell me about', '')
             info = wikipedia.summary(look, 1)
+            print(info)
+            talk(info)
+    elif 'who is' in command: 
+            person = command.replace('who is ', '')
+            info = wikipedia.summary(person, 1)
+            print(info)
+            talk(info)
+    elif 'where is' in command:
+            place = command.replace ('where is', '')
+            info = wikipedia.summary(place,1)
             print(info)
             talk(info)
     elif 'joke' in command:
         talk(pyjokes.get_joke())
     elif 'who are you' in command:
         talk('i am your personal virtual assistand')
-    elif 'goodbye' in command:
-        pass
     elif 'function' in command:
         print('i have the following function: ')
         talk('i have the following function: ')
@@ -65,6 +72,8 @@ def run_alexa():
         talk('for looking videos in youtube you say the command "play" ')
         print('for the time you say the command "time" ')
         talk('for the time you say the command "time" ')
+        print('for loking for someone or something on the internet you say the command "tell me about" ')
+        talk('for loking for someone or something on the internet you say the command "tell me about" ')
         print('for looking a short description of a person you say the command "who is" ')
         talk('for looking a short description of a person you say the command "who is" ')
         print('for looking for a place, like a country or a city you say the command "where is" ')
@@ -74,7 +83,11 @@ def run_alexa():
         print('if you want to know who i am you say the command "who are you" ')
         talk('if you want to know who i am you say the command "who are you" ')
         print('if you do not want to continue talking to me you say the command "goodbye" ')
-        talk('if you do not want to continue talking to me you say the command "goodbye" ')        
+        talk('if you do not want to continue talking to me you say the command "goodbye" ')  
+    elif 'goodbye' in command:
+        pass
+    elif 'understand' in command:
+        talk('i did not understand you please repeat the command')
     else: 
         talk('I did not get it but I am going to search it for you')
         pywhatkit.search(command)
