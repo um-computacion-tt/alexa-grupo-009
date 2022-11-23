@@ -63,9 +63,9 @@ def run_alexa():
         talk(pyjokes.get_joke())
     elif 'who are you' in command:
         talk('i am your personal virtual assistand')
-    elif 'function' in command:
-        print('i have the following function: ')
-        talk('i have the following function: ')
+    elif 'functions' in command:
+        print('i have the following functions: ')
+        talk('i have the following functions: ')
         print('for every function to work you have to say alexa first, and then the command')
         talk('for every function to work you have to say alexa first, and then the command')
         print('for looking videos in youtube you say the command "play" ')
