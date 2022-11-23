@@ -26,7 +26,7 @@ def take_command():
             if "alexa" in command:    
                 command = command.replace('alexa', '') 
     except:   
-        command = 'understand'
+        command = 'i did not understand you'
     return command
 
 def run_alexa(): 
@@ -62,7 +62,7 @@ def run_alexa():
     elif 'joke' in command:
         talk(pyjokes.get_joke())
     elif 'who are you' in command:
-        talk('i am your personal virtual assistand')
+        talk('i am your personal virtual assistant')
     elif 'functions' in command:
         print('i have the following functions: ')
         talk('i have the following functions: ')
@@ -72,8 +72,8 @@ def run_alexa():
         talk('for looking videos in youtube you say the command "play" ')
         print('for the time you say the command "time" ')
         talk('for the time you say the command "time" ')
-        print('for loking for someone or something on the internet you say the command "tell me about" ')
-        talk('for loking for someone or something on the internet you say the command "tell me about" ')
+        print('for looking for someone or something on the internet you say the command "tell me about" ')
+        talk('for looking for someone or something on the internet you say the command "tell me about" ')
         print('for looking a short description of a person you say the command "who is" ')
         talk('for looking a short description of a person you say the command "who is" ')
         print('for looking for a place, like a country or a city you say the command "where is" ')
@@ -87,7 +87,7 @@ def run_alexa():
     elif 'goodbye' in command:
         pass
     elif 'understand' in command:
-        talk('i did not understand you please repeat the command')
+        talk('i did not understand you, please repeat the command')
     else: 
         talk('I did not get it but I am going to search it for you')
         pywhatkit.search(command)
