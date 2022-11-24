@@ -38,27 +38,27 @@ def run_alexa():
         talk('playing ' + song)
         pywhatkit.playonyt(song)
     elif 'time' in command:                                          
-            time = datetime.datetime.now().strftime('%H:%M') 
-            print(time)
-            talk('Current time is ' + time)
-            '''time = datetime.datetime.now().strftime('%I:%M %p') 
-            print(time)
-            talk('Current time is ' + time) '''
+        time = datetime.datetime.now().strftime('%H:%M') 
+        print(time)
+        talk('Current time is ' + time)
+        '''time = datetime.datetime.now().strftime('%I:%M %p') 
+        print(time)
+        talk('Current time is ' + time) '''
     elif 'tell me about' in command: 
-            look = command.replace('tell me about', '')
-            info = wikipedia.summary(look, 1)
-            print(info)
-            talk(info)
+        look = command.replace('tell me about', '')
+        info = wikipedia.summary(look, 1)
+        print(info)
+        talk(info)
     elif 'who is' in command: 
-            person = command.replace('who is ', '')
-            info = wikipedia.summary(person, 1)
-            print(info)
-            talk(info)
+        person = command.replace('who is ', '')
+        info = wikipedia.summary(person, 1)
+        print(info)
+        talk(info)
     elif 'where is' in command:
-            place = command.replace ('where is', '')
-            info = wikipedia.summary(place,1)
-            print(info)
-            talk(info)
+        place = command.replace ('where is', '')
+        info = wikipedia.summary(place,1)
+        print(info)
+        talk(info)
     elif 'joke' in command:
         talk(pyjokes.get_joke())
     elif 'who are you' in command:
